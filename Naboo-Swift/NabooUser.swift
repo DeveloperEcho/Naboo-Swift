@@ -15,7 +15,7 @@ public class NabooUser {
     public var userId : Float?
     public var username : String?
     
-    init(dict : [String : Any]) {
+    public init(dict : [String : Any]) {
         self.userId = dict["userId"] as? Float
         self.username = dict["username"] as? String
     }
