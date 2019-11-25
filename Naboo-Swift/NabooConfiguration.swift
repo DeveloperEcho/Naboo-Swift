@@ -9,13 +9,13 @@
 import Foundation
 import MicrosoftAzureMobile
 
-class NabooConfiguration {
+public class NabooConfiguration {
     
-    var applicationKey : String?
-    var serverBaseUrl : String?
-    var client : MSClient?
+    public var applicationKey : String?
+    public var serverBaseUrl : String?
+    public var client : MSClient?
     
-    init(applicationKey : String,serverBaseUrl : String,microsoftLoginConnectorUrl : String) {
+    public init(applicationKey : String,serverBaseUrl : String,microsoftLoginConnectorUrl : String) {
         self.applicationKey = applicationKey
         self.serverBaseUrl = serverBaseUrl
         self.client = MSClient(applicationURL: URL(string: microsoftLoginConnectorUrl)!)

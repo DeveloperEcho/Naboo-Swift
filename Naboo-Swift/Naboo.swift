@@ -7,16 +7,17 @@
 //
 
 import Foundation
-class Naboo {
-    static let sharedInstance = Naboo()
+
+public class Naboo {
+    public static let sharedInstance = Naboo()
     
-    var nabooConfiguration : NabooConfiguration!
+    public var nabooConfiguration : NabooConfiguration!
     
-    init() {
+    public init() {
         
     }
     
-    init(nabooConfiguration : NabooConfiguration) {
+    public init(nabooConfiguration : NabooConfiguration) {
         self.nabooConfiguration = nabooConfiguration
     }
 }

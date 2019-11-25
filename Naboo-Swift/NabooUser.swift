@@ -9,11 +9,11 @@
 import Foundation
 import Alamofire
 
-typealias CompletitionCallBack = ((_ success: Bool, _ responseObject: [String:Any]?,_ statusCode : Int?)-> ())?
+public typealias CompletitionCallBack = ((_ success: Bool, _ responseObject: [String:Any]?,_ statusCode : Int?)-> ())?
 
-class NabooUser {
-    var userId : Float?
-    var username : String?
+public class NabooUser {
+    public var userId : Float?
+    public var username : String?
     
     init(dict : [String : Any]) {
         self.userId = dict["userId"] as? Float
