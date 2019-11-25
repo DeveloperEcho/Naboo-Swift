@@ -88,7 +88,7 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files = "Naboo-Swift/**/*.{swift,h,m}"
+  spec.source_files = "Naboo-Swift/**/*.{swift,h,m}"
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
