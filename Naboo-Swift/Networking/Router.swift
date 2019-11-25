@@ -172,7 +172,8 @@ enum Router: URLRequestConvertible {
     
     func asURLRequest() throws -> URLRequest {
         var url : URL!
-        url = URL(string: Naboo.sharedInstance.nabooConfiguration.serverBaseUrl! + path)
+        let urlString = Naboo.sharedInstance.nabooConfiguration.serverBaseUrl! + path
+        url = URL(string: urlString)
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = method.rawValue
         urlRequest.httpBody =  try JSONSerialization.data(withJSONObject: self.parameters, options: .prettyPrinted)
