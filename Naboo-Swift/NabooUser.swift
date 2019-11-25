@@ -39,7 +39,7 @@ public class NabooUser {
     }
     
     //Login
-    func login(email : String,password : String,deviceId : String,completitionHandler : CompletitionCallBack) {
+    public func login(email : String,password : String,deviceId : String,completitionHandler : CompletitionCallBack) {
         let loginParameters = [
             "Email" : email,
             "Password" : password,

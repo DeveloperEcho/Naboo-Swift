@@ -159,20 +159,20 @@ enum Router: URLRequestConvertible {
                 Constants.kAuthorization : String.init(format: "Bearer %@",acessToken),
                 Constants.accept : Constants.applicationJson,
                 Constants.contentType : Constants.applicationJson,
-                Constants.apiAccessKey : Naboo.sharedInstance.nabooConfiguration.applicationKey ?? ""
+                Constants.apiAccessKey : Naboo.sharedInstance.nabooConfiguration.applicationKey!
             ]
         } else {
             return [
                 Constants.accept : Constants.applicationJson,
                 Constants.contentType : Constants.applicationJson,
-                Constants.apiAccessKey : Naboo.sharedInstance.nabooConfiguration.applicationKey ?? ""
+                Constants.apiAccessKey : Naboo.sharedInstance.nabooConfiguration.applicationKey!
             ]
         }
     }
     
     func asURLRequest() throws -> URLRequest {
         var url : URL!
-        url = URL(string: Naboo.sharedInstance.nabooConfiguration.serverBaseUrl ?? "" + path)
+        url = URL(string: Naboo.sharedInstance.nabooConfiguration.serverBaseUrl! + path)
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = method.rawValue
         urlRequest.httpBody =  try JSONSerialization.data(withJSONObject: self.parameters, options: .prettyPrinted)
