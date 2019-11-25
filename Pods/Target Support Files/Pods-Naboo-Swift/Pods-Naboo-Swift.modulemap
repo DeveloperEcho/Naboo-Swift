@@ -1,0 +1,6 @@
+framework module Pods_Naboo_Swift {
+  umbrella header "Pods-Naboo-Swift-umbrella.h"
+
+  export *
+  module * { export * }
+}

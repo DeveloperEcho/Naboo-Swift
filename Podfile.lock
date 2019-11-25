@@ -1,0 +1,20 @@
+PODS:
+  - Alamofire (4.9.0)
+  - MicrosoftAzureMobile (3.4.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - MicrosoftAzureMobile (~> 3.4.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - MicrosoftAzureMobile
+
+SPEC CHECKSUMS:
+  Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
+  MicrosoftAzureMobile: 82719f7f9e1e3389d5c2fe5f6be034c344004e12
+
+PODFILE CHECKSUM: 0f32d926a7d4090c769c02f27b88cae707a52fa3
+
+COCOAPODS: 1.7.1
