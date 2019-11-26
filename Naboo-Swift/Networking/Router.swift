@@ -2,7 +2,7 @@
 //  Router.swift
 //  Naboo-Swift
 //
-//  Created by Pero Sechkov on 11/25/19.
+//  Created by Miki Dimitrov on 11/25/19.
 //  Copyright © 2019 CBoards. All rights reserved.
 //
 
@@ -155,12 +155,22 @@ enum Router: URLRequestConvertible {
             break
         }
         if let acessToken = acsToken {
-            return [
-                Constants.kAuthorization : String.init(format: "Bearer %@",acessToken),
-                Constants.accept : Constants.applicationJson,
-                Constants.contentType : Constants.applicationJson,
-                Constants.apiAccessKey : Naboo.sharedInstance.nabooConfiguration.applicationKey!
-            ]
+            switch self {
+            case .LoginWithSocialConnector:
+                return [
+                    Constants.accept : Constants.applicationJson,
+                    Constants.contentType : Constants.applicationJson,
+                    Constants.apiAccessKey : Naboo.sharedInstance.nabooConfiguration.applicationKey!,
+                    Constants.kMobileToken : acessToken
+                ]
+            default:
+                return [
+                    Constants.kAuthorization : String.init(format: "Bearer %@",acessToken),
+                    Constants.accept : Constants.applicationJson,
+                    Constants.contentType : Constants.applicationJson,
+                    Constants.apiAccessKey : Naboo.sharedInstance.nabooConfiguration.applicationKey!
+                ]
+            }
         } else {
             return [
                 Constants.accept : Constants.applicationJson,
@@ -172,7 +182,7 @@ enum Router: URLRequestConvertible {
     
     func asURLRequest() throws -> URLRequest {
         var url : URL!
-        let urlString = Naboo.sharedInstance.nabooConfiguration.serverBaseUrl! + path
+        let urlString = Naboo.sharedInstance.nabooConfiguration.serverBaseUrl + path
         url = URL(string: urlString)
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = method.rawValue

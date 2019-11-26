@@ -2,7 +2,7 @@
 //  Constants.swift
 //  Naboo-Swift
 //
-//  Created by Pero Sechkov on 11/25/19.
+//  Created by Miki Dimitrov on 11/25/19.
 //  Copyright © 2019 CBoards. All rights reserved.
 //
 
