@@ -26,16 +26,16 @@ public class NabooUser {
     public func executeRequest(request : URLRequestConvertible,completitionCallback : CompletitionCallBack) {
         Alamofire.request(request).responseJSON { (response) in
             switch response.result {
-            case .success(_):
-                let json = response.result.value as? [String:Any]
-                completitionCallback!(true,json,200)
-            case .failure(_):
-                if let res = response.response {
-                    let statusCode = res.statusCode
-                    completitionCallback!(false,nil,statusCode)
+            case .success:
+                let statusCode = response.response?.statusCode
+                let json = response.result.value as? [String: Any]
+                if (statusCode == 200) {
+                    completitionCallback!(true,json,200)
                 } else {
-                    completitionCallback!(false,nil,nil)
+                    completitionCallback!(false,json,statusCode)
                 }
+            case .failure:
+                completitionCallback!(false,nil,nil)
             }
         }
     }
