@@ -141,7 +141,7 @@ public class NabooUser {
     
     //MARK: Get User
     public func getUserAccount(accessToken : String,completitionCallback : CompletitionCallBack) {
-        self.executeRequest(request: Router.GetUserAccount([:],accessToken)) { (success,responseDict, statusCode) in
+        self.executeRequest(request: Router.GetUserAccount(accessToken)) { (success,responseDict, statusCode) in
             completitionCallback!(success,responseDict,statusCode)
         }
     }

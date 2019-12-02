@@ -21,7 +21,7 @@ enum Router: URLRequestConvertible {
     case SetPassword([String:Any],String?)
     case RegisterUser([String:Any],String?)
     case SubscribeDevice([String:Any],String?)
-    case GetUserAccount([String:Any],String?)
+    case GetUserAccount(String?)
     case UpdateUserAccount([String:Any],String?)
     case UpdateUserImage([String:Any],String?)
     case GetSocialConnectors([String:Any],String?)
@@ -102,8 +102,8 @@ enum Router: URLRequestConvertible {
             return param
         case .SubscribeDevice(let param,_):
             return param
-        case .GetUserAccount(let param,_):
-            return param
+        case .GetUserAccount:
+            return [:]
         case .UpdateUserAccount(let param,_):
             return param
         case .UpdateUserImage(let param,_):
@@ -136,7 +136,7 @@ enum Router: URLRequestConvertible {
         case .SetPassword(_,let accessToken):
             acsToken = accessToken
             break
-        case .GetUserAccount(_,let accessToken):
+        case .GetUserAccount(let accessToken):
             acsToken = accessToken
             break
         case .UpdateUserAccount(_, let accessToken):
@@ -163,6 +163,13 @@ enum Router: URLRequestConvertible {
                     Constants.apiAccessKey : Naboo.sharedInstance.nabooConfiguration.applicationKey!,
                     Constants.kMobileToken : acessToken
                 ]
+            case  .GetUserAccount:
+                return [
+                    Constants.kAuthorization : String.init(format: "Bearer %@",acessToken),
+                    Constants.accept : Constants.applicationJson,
+                    Constants.contentType : Constants.applicationJson,
+                    Constants.apiAccessKey : Naboo.sharedInstance.nabooConfiguration.applicationKey!
+                ]
             default:
                 return [
                     Constants.kAuthorization : String.init(format: "Bearer %@",acessToken),
@@ -186,7 +193,10 @@ enum Router: URLRequestConvertible {
         url = URL(string: urlString)
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = method.rawValue
-        urlRequest.httpBody =  try JSONSerialization.data(withJSONObject: self.parameters, options: .prettyPrinted)
+        if (method == .post) {
+            urlRequest.httpBody =  try JSONSerialization.data(withJSONObject: self.parameters, options: .prettyPrinted)
+        }
+        
         urlRequest.allHTTPHeaderFields = header
         return urlRequest
     }
