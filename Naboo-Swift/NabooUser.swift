@@ -185,7 +185,7 @@ public class NabooUser {
     }
     
     //MARK: Get Privacy Policy
-    func getPrivacyPolicy(version : Int,completitionCallback : CompletitionCallBack) {
+    public func getPrivacyPolicy(version : Int,completitionCallback : CompletitionCallBack) {
         let parameters = ["Version":version]
         self.executeRequest(request: Router.GetPrivacyPolicy(parameters,nil)) { (success,responseDict, statusCode) in
             completitionCallback!(success,responseDict,statusCode)
@@ -193,7 +193,7 @@ public class NabooUser {
     }
     
     //MARK: Change Email
-    func changeEmail(email: String,accessToken: String, completitionCallback : CompletitionCallBack) {
+    public func changeEmail(email: String,accessToken: String, completitionCallback : CompletitionCallBack) {
         let parameters = ["Email":email]
         self.executeRequest(request: Router.ChangeEmail(parameters, accessToken)) { (success,responseDict, statusCode) in
             completitionCallback!(success,responseDict,statusCode)

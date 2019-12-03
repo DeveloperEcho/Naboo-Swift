@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "Naboo-Swift"
-  spec.version      = "0.1.4"
+  spec.version      = "0.1.5"
   spec.summary      = "Naboo is framework for authentication and authorization."
 
   # This description is used to generate tags and improve search results.
