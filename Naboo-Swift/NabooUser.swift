@@ -191,4 +191,12 @@ public class NabooUser {
             completitionCallback!(success,responseDict,statusCode)
         }
     }
+    
+    //MARK: Change Email
+    func changeEmail(email: String,accessToken: String, completitionCallback : CompletitionCallBack) {
+        let parameters = ["Email":email]
+        self.executeRequest(request: Router.ChangeEmail(parameters, accessToken)) { (success,responseDict, statusCode) in
+            completitionCallback!(success,responseDict,statusCode)
+        }
+    }
 }
