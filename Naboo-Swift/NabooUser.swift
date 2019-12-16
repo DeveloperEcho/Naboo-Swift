@@ -162,7 +162,7 @@ public class NabooUser {
     }
     
     //MARK: Get Social Connectors
-    public func getSocialConnectors(accessToken : String,completitionCallback : CompletitionCallBack) {
+    public func getSocialConnectors(accessToken : String?,completitionCallback : CompletitionCallBack) {
         self.executeRequest(request: Router.GetSocialConnectors([:], accessToken)) { (success,responseDict, statusCode) in
             completitionCallback!(success,responseDict,statusCode)
         }

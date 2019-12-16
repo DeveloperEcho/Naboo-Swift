@@ -160,6 +160,10 @@ enum Router: URLRequestConvertible {
         case .ChangeEmail(_,let accessToken):
             acsToken = accessToken
             break
+        case .LoginWithSocialConnector(_, let accessToken):
+                acsToken = accessToken
+                break
+
         default:
             break
         }
