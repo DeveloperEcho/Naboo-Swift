@@ -192,6 +192,14 @@ public class NabooUser {
         }
     }
     
+    //MARK: Get TERMS OF USE
+    public func getTermsOfUse(version : Int,completitionCallback : CompletitionCallBack) {
+        let parameters = ["Version":version]
+        self.executeRequest(request: Router.GetTermsOfUse(parameters,nil)) { (success,responseDict, statusCode) in
+            completitionCallback!(success,responseDict,statusCode)
+        }
+    }
+    
     //MARK: Change Email
     public func changeEmail(email: String,accessToken: String, completitionCallback : CompletitionCallBack) {
         let parameters = ["Email":email]

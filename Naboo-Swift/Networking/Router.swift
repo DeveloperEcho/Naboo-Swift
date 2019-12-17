@@ -29,6 +29,7 @@ enum Router: URLRequestConvertible {
     case GetCountries([String:Any],String?)
     case CheckIfUserExists([String:Any],String?)
     case GetPrivacyPolicy([String:Any],String?)
+    case GetTermsOfUse([String:Any],String?)
     case ChangeEmail([String:Any],String?)
     
     var method: Alamofire.HTTPMethod {
@@ -78,6 +79,8 @@ enum Router: URLRequestConvertible {
             return Constants.kCheckIfUserExists
         case .GetPrivacyPolicy:
             return Constants.kGetPrivacyPolicy
+        case .GetTermsOfUse:
+            return Constants.kGetTermsOfUse
         case .ChangeEmail:
             return Constants.kChangeEmail
         }
@@ -121,6 +124,8 @@ enum Router: URLRequestConvertible {
         case .CheckIfUserExists(let param,_):
             return param
         case .GetPrivacyPolicy(let param,_):
+            return param
+        case .GetTermsOfUse(let param, _):
             return param
         case .ChangeEmail(let param, _):
             return param

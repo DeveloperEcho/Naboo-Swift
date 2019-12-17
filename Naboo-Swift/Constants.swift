@@ -50,6 +50,7 @@ struct Constants {
     
     static let kCheckIfUserExists = "SocialConnectorCheckIfUserExists"
     static let kGetPrivacyPolicy = "GetPrivacyPolicy"
+    static let kGetTermsOfUse = "GetTermsOfUse"
     
     //Default error message
     static let kDefaultErrorMessage = "An error occured, please try again later"
