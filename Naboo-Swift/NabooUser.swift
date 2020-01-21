@@ -179,7 +179,7 @@ public class NabooUser {
     //MARK: Get Countries
     public func getCountries(searchValue : String,accessToken : String,completitionCallback : CompletitionCallBack) {
         let parameters = ["SearchValue" : searchValue]
-        self.executeRequest(request: Router.GetSocialConnectors(parameters, accessToken))  { (success,responseDict, statusCode) in
+        self.executeRequest(request: Router.GetCountries(parameters, accessToken))  { (success,responseDict, statusCode) in
             completitionCallback!(success,responseDict,statusCode)
         }
     }
