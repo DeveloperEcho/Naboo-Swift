@@ -12,6 +12,7 @@ import Alamofire
 enum Router: URLRequestConvertible {
     
     case LoginWithEmail([String:Any],String?)
+    case LoginOnlyWithEmail([String:Any])
     case LoginWithFacebook([String:Any],String?)
     case LogoutUser([String:Any],String?)
     case LoginWithSocialConnector([String:Any],String?)
@@ -47,6 +48,8 @@ enum Router: URLRequestConvertible {
         switch self {
         case .LoginWithEmail:
             return Constants.kLoginUser
+        case .LoginOnlyWithEmail:
+            return Constants.kLoginOnlyWithEmail
         case .LoginWithFacebook:
             return Constants.kFacebookLogin
         case .LogoutUser:
@@ -96,6 +99,8 @@ enum Router: URLRequestConvertible {
     var parameters: [String: Any] {
         switch self {
         case .LoginWithEmail(let param,_):
+            return param
+        case .LoginOnlyWithEmail(let param):
             return param
         case .LoginWithFacebook(let param,_):
             return param

@@ -23,6 +23,7 @@ struct Constants {
     
     //User Authentication Endpoints
     static let kLoginUser = "LoginUser"
+    static let kLoginOnlyWithEmail = "LoginUserWithEmail"
     static let kLogoutUser = "LogoutUser"
     static let kRefreshToken = "RefreshToken"
     static let kSocialConnectorSignIn = "SocialConnectorSignin"

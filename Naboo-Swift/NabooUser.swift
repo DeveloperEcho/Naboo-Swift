@@ -55,8 +55,14 @@ public class NabooUser {
     
     //MARK: Login with facebook
     public func loginWithFacebook(dict : [String : Any],completitionHandler : CompletitionCallBack) {
-        print(dict)
         self.executeRequest(request: Router.LoginWithFacebook(dict, nil)) { (success,responseDict, statusCode) in
+            completitionHandler!(success,responseDict,statusCode)
+        }
+    }
+    
+    //MARK: Login Only With Email
+    public func loginWithEmail(dict : [String:Any],completitionHandler : CompletitionCallBack) {
+        self.executeRequest(request: Router.LoginOnlyWithEmail(dict)) { (success,responseDict, statusCode) in
             completitionHandler!(success,responseDict,statusCode)
         }
     }
