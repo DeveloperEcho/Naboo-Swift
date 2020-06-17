@@ -38,9 +38,11 @@ struct Constants {
     static let kUpdateUserAccount = "UpdateUserAccount"
     static let kUserUploadImage = "UserUploadImage"
     static let kChangeEmail = "ChangeEmail"
+    static let kValidateEmail = "IsEmailValid"
     
     //Registration Enpoints
     static let kRegisterUser = "RegisterUser"
+    static let kRegisterUserWithEmail = "RegisterUserWithEmail"
     static let kSubscribeDevice = "SubscribeDevice"
     
     //Additional Data Endpoints

@@ -133,6 +133,12 @@ public class NabooUser {
         }
     }
     
+    public func registerUserWithEmail(dict : [String:Any],completitionCallback : CompletitionCallBack) {
+        self.executeRequest(request: Router.RegisterUserWithEmail(dict)) { (success,responseDict, statusCode) in
+            completitionCallback!(success,responseDict,statusCode)
+        }
+    }
+    
     public func subscribeDevice(dict : [String:Any],completitionCallback : CompletitionCallBack) {
         self.executeRequest(request: Router.SubscribeDevice(dict,nil)) { (success,responseDict, statusCode) in
             completitionCallback!(success,responseDict,statusCode)
@@ -204,6 +210,13 @@ public class NabooUser {
     public func changeEmail(email: String,accessToken: String, completitionCallback : CompletitionCallBack) {
         let parameters = ["Email":email]
         self.executeRequest(request: Router.ChangeEmail(parameters, accessToken)) { (success,responseDict, statusCode) in
+            completitionCallback!(success,responseDict,statusCode)
+        }
+    }
+    
+    //MARK: VALIDATE EMAIL
+    public func validataEmail(dict : [String:Any],completitionCallback : CompletitionCallBack) {
+        self.executeRequest(request: Router.ValidateEmail(dict)) { (success,responseDict, statusCode) in
             completitionCallback!(success,responseDict,statusCode)
         }
     }

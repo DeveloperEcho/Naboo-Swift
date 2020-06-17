@@ -20,6 +20,7 @@ enum Router: URLRequestConvertible {
     case ChangePassword([String:Any],String?)
     case SetPassword([String:Any],String?)
     case RegisterUser([String:Any],String?)
+    case RegisterUserWithEmail([String:Any])
     case SubscribeDevice([String:Any],String?)
     case GetUserAccount(String?)
     case UpdateUserAccount([String:Any],String?)
@@ -31,6 +32,7 @@ enum Router: URLRequestConvertible {
     case GetPrivacyPolicy([String:Any],String?)
     case GetTermsOfUse([String:Any],String?)
     case ChangeEmail([String:Any],String?)
+    case ValidateEmail([String:Any])
     
     var method: Alamofire.HTTPMethod {
         switch self {
@@ -61,6 +63,8 @@ enum Router: URLRequestConvertible {
             return Constants.kSetPassword
         case .RegisterUser:
             return Constants.kRegisterUser
+        case .RegisterUserWithEmail:
+            return Constants.kRegisterUserWithEmail
         case .SubscribeDevice:
             return Constants.kSubscribeDevice
         case .GetUserAccount:
@@ -83,6 +87,8 @@ enum Router: URLRequestConvertible {
             return Constants.kGetTermsOfUse
         case .ChangeEmail:
             return Constants.kChangeEmail
+        case .ValidateEmail:
+            return Constants.kValidateEmail
         }
         
     }
@@ -128,6 +134,10 @@ enum Router: URLRequestConvertible {
         case .GetTermsOfUse(let param, _):
             return param
         case .ChangeEmail(let param, _):
+            return param
+        case .RegisterUserWithEmail(let param):
+            return param
+        case .ValidateEmail(let param):
             return param
         }
     }
