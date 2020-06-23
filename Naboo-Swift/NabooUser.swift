@@ -226,4 +226,11 @@ public class NabooUser {
             completitionCallback!(success,responseDict,statusCode)
         }
     }
+    
+    //MARK: RESEND ACTIVATION EMAIL
+    public func resendActivationEmail(dict : [String:Any],completitionCallback : CompletitionCallBack) {
+        self.executeRequest(request: Router.ResendActivationEmail(dict)) { (success,responseDict, statusCode) in
+            completitionCallback!(success,responseDict,statusCode)
+        }
+    }
 }

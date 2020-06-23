@@ -40,6 +40,7 @@ struct Constants {
     static let kUserUploadImage = "UserUploadImage"
     static let kChangeEmail = "ChangeEmail"
     static let kValidateEmail = "IsEmailValid"
+    static let kResendActivationEmail = "ResendActivationEmail"
     
     //Registration Enpoints
     static let kRegisterUser = "RegisterUser"
