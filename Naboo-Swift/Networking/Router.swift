@@ -28,7 +28,7 @@ enum Router: URLRequestConvertible {
     case UpdateUserImage([String:Any],String?)
     case GetSocialConnectors([String:Any],String?)
     case GetUserInterests([String:Any],String?)
-    case GetCountries([String:Any],String?)
+    case GetCountries([String:Any])
     case CheckIfUserExists([String:Any],String?)
     case GetPrivacyPolicy([String:Any],String?)
     case GetTermsOfUse([String:Any],String?)
@@ -133,7 +133,7 @@ enum Router: URLRequestConvertible {
             return param
         case .GetUserInterests(let param,_):
             return param
-        case .GetCountries(let param,_):
+        case .GetCountries(let param):
             return param
         case .CheckIfUserExists(let param,_):
             return param
@@ -177,9 +177,6 @@ enum Router: URLRequestConvertible {
             acsToken = accessToken
             break
         case .GetSocialConnectors(_, let accessToken):
-            acsToken = accessToken
-            break
-        case .GetCountries(_,let accessToken):
             acsToken = accessToken
             break
         case .ChangeEmail(_,let accessToken):
