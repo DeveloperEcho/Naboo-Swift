@@ -233,4 +233,10 @@ public class NabooUser {
             completitionCallback!(success,responseDict,statusCode)
         }
     }
+    //MARK: SAVE DEVICE SKIN OWNER
+    public func saveDeviceSkinOwner(dict : [String:Any],completitionCallback : CompletitionCallBack) {
+        self.executeRequest(request: Router.SaveDeviceSkinOwner(dict)) { (success,responseDict, statusCode) in
+            completitionCallback!(success,responseDict,statusCode)
+        }
+    }
 }

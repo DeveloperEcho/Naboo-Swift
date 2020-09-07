@@ -56,6 +56,7 @@ struct Constants {
     static let kGetPrivacyPolicy = "GetPrivacyPolicy"
     static let kGetTermsOfUse = "GetTermsOfUse"
     
+    static let kSaveDeviceSkinOwner = "SaveDeviceSkinOwner"
     //Default error message
     static let kDefaultErrorMessage = "An error occured, please try again later"
 }

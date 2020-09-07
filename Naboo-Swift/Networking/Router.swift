@@ -35,6 +35,7 @@ enum Router: URLRequestConvertible {
     case ChangeEmail([String:Any],String?)
     case ValidateEmail([String:Any])
     case ResendActivationEmail([String:Any])
+    case SaveDeviceSkinOwner([String:Any])
     
     var method: Alamofire.HTTPMethod {
         switch self {
@@ -95,6 +96,8 @@ enum Router: URLRequestConvertible {
             return Constants.kValidateEmail
         case .ResendActivationEmail:
             return Constants.kResendActivationEmail
+        case .SaveDeviceSkinOwner:
+            return Constants.kSaveDeviceSkinOwner
         }
         
     }
@@ -149,6 +152,8 @@ enum Router: URLRequestConvertible {
             return param
         case .ResendActivationEmail(let param):
             return param
+        case .SaveDeviceSkinOwner(let param):
+            return param
         }
     }
     
@@ -183,8 +188,8 @@ enum Router: URLRequestConvertible {
             acsToken = accessToken
             break
         case .LoginWithSocialConnector(_, let accessToken):
-                acsToken = accessToken
-                break
+            acsToken = accessToken
+            break
 
         default:
             break
